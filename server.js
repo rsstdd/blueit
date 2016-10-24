@@ -43,11 +43,11 @@ app.use((req, res, next) => {
 
 // const topics = require('./routes/topics');
 // const posts = require('./routes/posts');
-// const users = require('./routes/users');
+const users = require('./routes/users');
 
 // app.use('topics');
 // app.use('posts');
-// app.use('users');
+app.use('users');
 
 app.use((_req, res) => {
   res.sendStatus(404);
