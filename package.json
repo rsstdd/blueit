@@ -4,8 +4,11 @@
   "description": "Angular Reddit clone server",
   "main": "server.js",
   "scripts": {
+    "knex": "knex",
     "test": "mocha",
-    "start": "node server.js"
+    "start": "nodemon server.js",
+    "lint": "eslint .",
+    "nf": "nf start"
   },
   "author": "Ian Smith <ian.smith@galvanize.com>",
   "contributors": [
@@ -15,22 +18,27 @@
   "dependencies": {
     "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^2.0.0",
     "eslint": "^3.8.1",
     "express": "^4.14.0",
     "express-validation": "^1.0.0",
+    "humps": "^2.0.0",
     "joi": "^9.0.1",
-    "knex": "^0.11.9",
+    "knex": "^0.11.10",
     "morgan": "^1.7.0",
+    "nodemon": "^1.11.0",
     "pg": "^6.0.3"
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "eslint-config-ryansobol": "^9.1.1",
     "mocha": "^2.5.3",
     "nodemon": "^1.9.2"
   },
   "engines": {
-    "node": "6.2.2"
+    "node": "6.9.1"
   },
   "repository": {
     "type": "git",

@@ -41,15 +41,13 @@ app.use((req, res, next) => {
   res.sendStatus(406);
 });
 
-
 // const topics = require('./routes/topics');
 // const posts = require('./routes/posts');
 // const users = require('./routes/users');
-//
+
 // app.use('topics');
 // app.use('posts');
 // app.use('users');
-
 
 app.use((_req, res) => {
   res.sendStatus(404);
@@ -70,13 +68,19 @@ app.use((err, _req, res, _next) => {
       .send(err.errors[0].messages[0]);
   }
 
+  // eslint-disable-next-line no-console
+  console.error(err.stack);
+  res.sendStatus(500);
+});
+
 const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
-  if (app.get('env') !== 'test') {
+  // if (app.get('env') !== 'test') {
     // eslint-disable-next-line no-console
-    console.log('Listening on port' port);
-  }
+    console.log('Hello World');
+    console.log(`Listening on port ${port}`);
+  // }
 });
 
 module.exports = app;
