@@ -1,5 +1,9 @@
 'use strict';
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const express = require('express');
 const app = express();
 
@@ -38,13 +42,13 @@ app.use((req, res, next) => {
 });
 
 
-const topics = require('./routes/topics');
-const posts = require('./routes/posts');
-const users = require('./routes/users');
-
-app.use('topics');
-app.use('posts');
-app.use('users');
+// const topics = require('./routes/topics');
+// const posts = require('./routes/posts');
+// const users = require('./routes/users');
+//
+// app.use('topics');
+// app.use('posts');
+// app.use('users');
 
 
 app.use((_req, res) => {
@@ -71,8 +75,8 @@ const port = process.env.PORT || 8000;
 app.listen(port, () => {
   if (app.get('env') !== 'test') {
     // eslint-disable-next-line no-console
-    console.log(`Listening on port ${port}`);
+    console.log('Listening on port' port);
   }
-})
+});
 
 module.exports = app;
