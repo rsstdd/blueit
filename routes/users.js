@@ -3,14 +3,14 @@
 const express = require('express');
 const knex = require('../knex');
 const boom = require('boom');
-const bcyrpt = require('bcrypt-as-promised');
-const { camelizeKeys, decamlizeKeys } = require('humps');
+const bcrypt = require('bcrypt-as-promised');
+const { camelizeKeys, decamelizeKeys } = require('humps');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
 router.post('/users', (req, res, next) => {
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password } = req.body;
 
   knex('users')
     .where('email', email)
@@ -32,11 +32,10 @@ router.post('/users', (req, res, next) => {
 
         res.send(user);
       })
-      .catch(err) => {
+      .catch((err) => {
         next(err);
       });
     });
 });
-
 
 module.exports =  router;
